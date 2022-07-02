@@ -4,7 +4,11 @@ This is the repo of my dwm status bar script.
 <img src='./.img/showoff0.jpg'/>
 ___Do not make any issue if you haven't read the troublem shooting below(In particular, the section on hardware temperature capture).___
 # Usage #
-Start your [dwm](https://dwm.suckless.org/) and run
+Clone the repo with command below in your terminal
+```
+git clone https://github.com/Lew1s777/dwm-statusbar.git
+```
+Then start your [dwm](https://dwm.suckless.org/) and run
 ```
 $ bash ./dwm-status.sh
 ```
