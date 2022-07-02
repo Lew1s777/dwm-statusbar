@@ -6,7 +6,7 @@ ___Do not make any issue if you haven't read the troublem shooting below(In part
 # Usage #
 Clone the repo with command below in your terminal
 ```
-git clone https://github.com/Lew1s777/dwm-statusbar.git
+$ git clone https://github.com/Lew1s777/dwm-statusbar.git
 ```
 Then start your [dwm](https://dwm.suckless.org/) and run
 ```
