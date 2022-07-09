@@ -2,7 +2,7 @@
 This is the repo of my dwm status bar script.
 <img src='./.img/showoff.jpg'/>
 <img src='./.img/showoff0.jpg'/>
-___Do not make any issue if you haven't read the troublem shooting below(In particular, the section on hardware temperature capture).___
+___Do not make any issue if you haven't read the troubo shooting below(In particular, the section on hardware temperature capture).___
 # Usage #
 Clone the repo with command below in your terminal
 ```
