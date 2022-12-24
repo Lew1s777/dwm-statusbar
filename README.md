@@ -26,14 +26,8 @@ print_cpu_temp(){
         echo "$cpu"
 }
 
-print_gpu_temp(){
-        gpu=/sys/class/hwmon/hwmon5/temp1_input
-        gpu="$(($(< "$gpu") * 100 / 10000))"
-        gpu="${gpu/${gpu: -1}}.${gpu: -1}°${gpu_temp:-C}"
-        echo "$gpu"
-}
 ```
-It gets my cpu temperature from sensor 「/sys/class/hwmon/hwmon3/temp1_input」and gpu's from 「/sys/class/hwmon/hwmon5/temp1_input」.However,the path depend on the specific machine,which means that you need to change it to your machine's path.
+It gets my cpu temperature from sensor ```/sys/class/hwmon/hwmon3/temp1_input```.However,the path depend on the specific machine,which means that you need to change it to your machine's path.
 
 Your sensors output should be under the
 ```/sys/class/hwmon/hwmon*/```
@@ -45,8 +39,4 @@ Under the folder,there will have many file named temp```[number]_input```,that i
 To identify which hardware it refer to,check the file that named ```[the same number]_label```
 
 Once you found your own path of sensors' output,use it to replace the path in the original script.
-
-#### No status bar? ####
-
-make sure your windows manager is [dwm](http://dwm.suckless.org/)(___Under xorg___),not [dwl](https://github.com/djpohly/dwl) or whatever it is.
 
