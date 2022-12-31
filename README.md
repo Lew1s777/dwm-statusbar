@@ -3,8 +3,8 @@ This is the repo of my dwm status bar script.
 <img src='./.img/showoff.jpg'/>
 <img src='./.img/showoff0.jpg'/>
 
-___Do not make any issue if you haven't read the troubo shooting below(In particular, the section on hardware temperature capture).___
-# Usage #
+Usage
+---
 Clone the repo with command below in your terminal
 ```
 $ git clone https://github.com/Lew1s777/dwm-statusbar.git
@@ -15,7 +15,13 @@ $ bash ./dwm-status.sh
 ```
 To auto start at the dwm launch,patch your dwm an autostart patch and add the status bar script to your autostart script.
 
-# Things you HAVE TO KNOW-Troublem shooting #
+To avoid ```xsetroot``` command spawning too many PIDs,use command below to compile a C program ```dwm-setstatus``` and pipe statusbar content in it instead.
+```
+gcc ./src/dwm-setstatus.c -lX11 -o ./bin/dwm-setstatus -O3
+```
+
+Things you HAVE TO KNOW-Troublem shooting
+---
 #### no cpu/gpu temperature ####
 The line 39 to line 51 are the temperature function
 ```
@@ -40,3 +46,5 @@ To identify which hardware it refer to,check the file that named ```[the same nu
 
 Once you found your own path of sensors' output,use it to replace the path in the original script.
 
+#### no emoji ####
+make sure ur dwm have font ```monospace```

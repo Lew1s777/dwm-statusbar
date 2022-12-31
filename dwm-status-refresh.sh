@@ -42,6 +42,7 @@ speed="$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)"
 echo $speed
 }
 
-xsetroot -name "🌡$(print_cpu_temp)℃丨$(print_cpu_freq)GHz丨🔊$(print_volume)丨💿$(print_mem)G丨$(get_battery_charging_status)$(print_bat)丨📆$(print_date)"
+#xsetroot -name "🌡$(print_cpu_temp)℃丨$(print_cpu_freq)GHz丨🔊$(print_volume)丨💿$(print_mem)G丨$(get_battery_charging_status)$(print_bat)丨📆$(print_date)"
+echo "🌡$(print_cpu_temp)℃丨$(print_cpu_freq)GHz丨🔊$(print_volume)丨💿$(print_mem)G丨$(get_battery_charging_status)$(print_bat)丨📆$(print_date)" | ./bin/dwm-setstatus
 
 exit 0
