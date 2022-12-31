@@ -15,7 +15,7 @@ $ bash ./dwm-status.sh
 ```
 To auto start at the dwm launch,patch your dwm an autostart patch and add the status bar script to your autostart script.
 
-To avoid ```xsetroot``` command spawning too many PIDs,use command below to compile a C program ```dwm-setstatus``` and pipe statusbar content in it instead.
+To avoid ```xsetroot``` command spawning too many PIDs,I use a C program and pipe statusbar content in it instead.Use the command below to compile it.
 ```
 gcc ./src/dwm-setstatus.c -lX11 -o ./bin/dwm-setstatus -O3
 ```
