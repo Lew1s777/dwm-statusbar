@@ -1,5 +1,13 @@
 #!/bin/sh
 
+for temp_dir in /sys/class/hwmon/*; do
+    [[ "$(< "${temp_dir}/name")" =~ (coretemp|fam15h_power|k10temp) ]] && {
+        temp_dirs=("$temp_dir"/temp*_input)
+        temp=${temp_dirs[0]}
+	break
+	}
+done
+
 print_volume() {
 	volume="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
 	if test "$volume" -gt 0
@@ -29,12 +37,13 @@ print_date(){
 #	date '+%Y/%m/%d/%H:%M'
 	date '+%m/%d/%H:%M'
 }
+
 print_cpu_temp(){
-        deg=/sys/class/hwmon/hwmon3/temp1_input
-        deg="$(($(< "$deg") * 100 / 10000))"
-        deg="${deg/${deg: -1}}.${deg: -1}"
-        echo "$deg"
+deg="$(($(cat "$temp") * 100 / 10000))"
+deg="${deg/${deg: -1}}.${deg: -1}"
+echo "$deg"
 }
+
 print_cpu_freq(){
 speed="$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)"
     #speed="$(($speed / 1000))"
@@ -43,6 +52,6 @@ echo $speed
 }
 
 #xsetroot -name "🌡$(print_cpu_temp)℃丨$(print_cpu_freq)GHz丨🔊$(print_volume)丨💿$(print_mem)G丨$(get_battery_charging_status)$(print_bat)丨📆$(print_date)"
-echo "🌡$(print_cpu_temp)℃丨$(print_cpu_freq)GHz丨🔊$(print_volume)丨💿$(print_mem)G丨$(get_battery_charging_status)$(print_bat)丨📆$(print_date)" | ./bin/dwm-setstatus
+echo "🌡$(print_cpu_temp)℃丨$(print_cpu_freq)GHz丨🔊$(print_volume)丨💿$(print_mem)G丨$(get_battery_charging_status)$(print_bat)丨$(print_date)" | ~/scripts/bin/dwm-setstatus
 
 exit 0
