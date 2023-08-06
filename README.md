@@ -1,5 +1,8 @@
 # My Dwm Statusbar #
-This is the repo of my dwm status bar script.
+This is the repo of my old dwm status bar script.(works for every dwm build)
+
+For my latest dwm build,see [here](https://github.com/Lew1s777/dwm-statusbar/tree/modules)
+
 <img src='./.img/showoff.jpg'/>
 <img src='./.img/showoff0.jpg'/>
 
